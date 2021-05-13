@@ -5,7 +5,7 @@
     android:initialLayout="@layout/premiere_widget_2x2"
     android:minWidth="110dp"
     android:minHeight="110dp"
-    android:previewImage="@drawable/example_appwidget_preview"
+    android:previewImage="@drawable/large_sample"
     android:resizeMode="horizontal"
     android:updatePeriodMillis="86400000"
     android:widgetCategory="home_screen|keyguard" />
