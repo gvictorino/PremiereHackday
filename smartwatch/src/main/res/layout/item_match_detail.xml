@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_live_dot"
+        app:layout_constraintBottom_toBottomOf="@id/itemMatchDetailTime"
+        app:layout_constraintEnd_toStartOf="@id/itemMatchDetailTime"
+        app:layout_constraintTop_toTopOf="@id/itemMatchDetailTime" />
+
+    <TextView
+        android:id="@+id/itemMatchDetailTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/versusTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12” 1T" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/itemMatchDetailHomeTeamIcon"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:src="@drawable/ic_team_placeholder"
+        app:layout_constraintBottom_toBottomOf="@id/homeTeamScore"
+        app:layout_constraintEnd_toStartOf="@id/homeTeamScore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/homeTeamScore" />
+
+    <TextView
+        android:id="@+id/itemMatchDetailHomeTeamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MatchDetailTeamName"
+        app:layout_constraintEnd_toEndOf="@id/itemMatchDetailHomeTeamIcon"
+        app:layout_constraintStart_toStartOf="@id/itemMatchDetailHomeTeamIcon"
+        app:layout_constraintTop_toBottomOf="@id/itemMatchDetailHomeTeamIcon"
+        tools:text="ABC" />
+
+    <TextView
+        android:id="@+id/homeTeamScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MatchDetailTeamScore"
+        app:layout_constraintBottom_toBottomOf="@id/versusTextView"
+        app:layout_constraintEnd_toStartOf="@id/versusTextView"
+        app:layout_constraintStart_toEndOf="@id/itemMatchDetailHomeTeamName"
+        app:layout_constraintTop_toTopOf="@id/versusTextView"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/versusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:fontFamily="@font/roboto_bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@id/itemMatchDetailChampionship"
+        app:layout_constraintEnd_toStartOf="@id/awayTeamScore"
+        app:layout_constraintStart_toEndOf="@id/homeTeamScore"
+        app:layout_constraintTop_toBottomOf="@id/itemMatchDetailTime"
+        tools:text="X" />
+
+    <TextView
+        android:id="@+id/awayTeamScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MatchDetailTeamScore"
+        app:layout_constraintBottom_toBottomOf="@id/versusTextView"
+        app:layout_constraintEnd_toStartOf="@id/itemMatchDetailAwayTeam"
+        app:layout_constraintStart_toEndOf="@id/versusTextView"
+        app:layout_constraintTop_toTopOf="@id/versusTextView"
+        tools:text="0" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/itemMatchDetailAwayTeam"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:src="@drawable/ic_team_placeholder"
+        app:layout_constraintBottom_toBottomOf="@id/awayTeamScore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/awayTeamScore"
+        app:layout_constraintTop_toTopOf="@id/awayTeamScore" />
+
+    <TextView
+        android:id="@+id/itemMatchDetailAwayTeamName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MatchDetailTeamName"
+        app:layout_constraintEnd_toEndOf="@id/itemMatchDetailAwayTeam"
+        app:layout_constraintStart_toStartOf="@id/itemMatchDetailAwayTeam"
+        app:layout_constraintTop_toBottomOf="@id/itemMatchDetailAwayTeam"
+        tools:text="XYZ" />
+
+    <TextView
+        android:id="@+id/itemMatchDetailChampionship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:fontFamily="@font/roboto_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/versusTextView"
+        tools:text="Campeonato brasileiro" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
