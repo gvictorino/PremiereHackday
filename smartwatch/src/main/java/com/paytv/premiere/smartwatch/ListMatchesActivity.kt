@@ -71,7 +71,7 @@ class ListMatchesActivity : Activity() {
                 awayTeamScore.text = "0"
 
                 root.setOnClickListener {
-                    onMatchClicked(adapterPosition)
+                    onMatchClicked(bindingAdapterPosition)
                 }
             }
         }

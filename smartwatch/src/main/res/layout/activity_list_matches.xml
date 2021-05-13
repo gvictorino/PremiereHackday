@@ -4,5 +4,6 @@
     android:id="@+id/matchesWearableRecycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="8dp"/>
+    android:paddingHorizontal="8dp"
+    android:paddingBottom="12dp"/>
 
