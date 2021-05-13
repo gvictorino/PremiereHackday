@@ -5,13 +5,24 @@ import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.os.Bundle
 import android.widget.RemoteViews
+import com.paytv.premiere.core.service.MatchesService
+import com.paytv.premiere.core.service.MatchesServiceImpl
+import com.squareup.picasso.Picasso
 
 /**
  * Implementation of App Widget functionality.
  */
+
+lateinit var matchesService: MatchesService
+
 class PremiereLargeWidget : AppWidgetProvider() {
-    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
         // There may be multiple widgets active, so update all of them
+        matchesService = MatchesServiceImpl(context)
         for (appWidgetId in appWidgetIds) {
             updateAppLargeWidget(context, appWidgetManager, appWidgetId)
         }
@@ -25,7 +36,12 @@ class PremiereLargeWidget : AppWidgetProvider() {
         // Enter relevant functionality for when the last widget is disabled
     }
 
-    override fun onAppWidgetOptionsChanged(context: Context?, appWidgetManager: AppWidgetManager?, appWidgetId: Int, newOptions: Bundle?) {
+    override fun onAppWidgetOptionsChanged(
+        context: Context?,
+        appWidgetManager: AppWidgetManager?,
+        appWidgetId: Int,
+        newOptions: Bundle?
+    ) {
         // See the dimensions and
         val options = appWidgetManager!!.getAppWidgetOptions(appWidgetId)
 
@@ -49,10 +65,18 @@ class PremiereLargeWidget : AppWidgetProvider() {
     }
 }
 
-internal fun updateAppLargeWidget(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int) {
+internal fun updateAppLargeWidget(
+    context: Context,
+    appWidgetManager: AppWidgetManager,
+    appWidgetId: Int
+) {
     val widgetText = context.getString(R.string.appwidget_text)
     // Construct the RemoteViews object
+    val matches = matchesService.getMatches()
     val views = RemoteViews(context.packageName, R.layout.premiere_widget_2x2)
+
+    views.setTextViewText(R.id.championshipText, matches[0].championship)
+    views.setImageViewBitmap(R.id.awayTeamLogo, Picasso.get().load(matches[0].away!!.image).get())
 
     // Instruct the widget manager to update the widget
     appWidgetManager.updateAppWidget(appWidgetId, views)
