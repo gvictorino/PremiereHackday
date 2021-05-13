@@ -9,7 +9,7 @@ import android.widget.RemoteViews
 /**
  * Implementation of App Widget functionality.
  */
-class PremiereWidget : AppWidgetProvider() {
+class PremiereSmallWidget : AppWidgetProvider() {
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
