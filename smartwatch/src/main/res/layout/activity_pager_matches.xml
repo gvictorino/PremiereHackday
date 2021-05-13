@@ -19,8 +19,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:tabBackground="@drawable/dr_page_indicator_selector"
         app:tabGravity="center"
-        app:tabPaddingStart="6dp"
-        app:tabPaddingEnd="6dp"
+        app:tabPaddingStart="7dp"
+        app:tabPaddingEnd="7dp"
         app:tabIndicatorHeight="0dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

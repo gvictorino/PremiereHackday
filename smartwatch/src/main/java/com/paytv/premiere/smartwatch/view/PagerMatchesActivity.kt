@@ -1,4 +1,4 @@
-package com.paytv.premiere.smartwatch
+package com.paytv.premiere.smartwatch.view
 
 import android.app.Activity
 import android.os.Bundle

@@ -7,6 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.paytv.premiere.core.entities.Match
 import com.paytv.premiere.smartwatch.databinding.ItemMatchDetailBinding
+import com.paytv.premiere.smartwatch.extensions.DB_DATE_FORMAT
+import com.paytv.premiere.smartwatch.extensions.getRelativeDate
+import com.paytv.premiere.smartwatch.extensions.mapTime
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MatchesPagerAdapter(
     private val list: List<Match>
@@ -35,16 +40,26 @@ class MatchesPagerAdapter(
             with(binding) {
 
                 if (match.status == "live") {
-                    binding.liveImageView.visibility = View.VISIBLE
-                    binding.itemMatchDetailTime.visibility = View.VISIBLE
-                    binding.itemMatchDetailMatchHour.visibility = View.GONE
-                    binding.itemMatchDetailMatchInformation.visibility = View.GONE
+                    liveImageView.visibility = View.VISIBLE
+                    itemMatchDetailTime.visibility = View.VISIBLE
+                    itemMatchDetailMatchHour.visibility = View.GONE
+                    itemMatchDetailMatchInformation.visibility = View.GONE
+
+                    itemMatchDetailTime.text =
+                        "${match.time}\" ${if (match.period == "first_half") "1T" else "2T"}"
                 } else {
-                    binding.liveImageView.visibility = View.GONE
-                    binding.itemMatchDetailTime.visibility = View.GONE
-                    binding.itemMatchDetailMatchHour.visibility = View.VISIBLE
-                    binding.itemMatchDetailMatchInformation.visibility = View.VISIBLE
+                    val date =
+                        SimpleDateFormat(DB_DATE_FORMAT, Locale.getDefault()).parse(match.datetime)
+                    liveImageView.visibility = View.GONE
+                    itemMatchDetailTime.visibility = View.GONE
+                    itemMatchDetailMatchHour.visibility = View.VISIBLE
+                    itemMatchDetailMatchInformation.visibility = View.VISIBLE
+
+                    itemMatchDetailMatchHour.text = date?.mapTime()
+                    itemMatchDetailMatchInformation.text = date?.getRelativeDate()
                 }
+
+                versusTextView.text = "X"
 
                 homeTeamScore.text = match.homeScore.toString()
                 itemMatchDetailHomeTeamName.text = match.home?.abbreviation
@@ -53,6 +68,8 @@ class MatchesPagerAdapter(
                 awayTeamScore.text = match.awayScore.toString()
                 itemMatchDetailAwayTeamName.text = match.away?.abbreviation
                 itemMatchDetailAwayTeam.load(match.away?.image)
+
+                itemMatchDetailChampionship.text = match.championship
             }
         }
     }
