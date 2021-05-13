@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MatchDetailTeamScore">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/grey_88</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="MatchDetailTeamName">
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/grey_66</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+</resources>
