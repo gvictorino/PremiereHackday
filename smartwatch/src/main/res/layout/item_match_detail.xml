@@ -5,32 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/informationLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_live_dot"
-        app:layout_constraintBottom_toBottomOf="@id/itemMatchDetailTime"
-        app:layout_constraintEnd_toStartOf="@id/itemMatchDetailTime"
-        app:layout_constraintTop_toTopOf="@id/itemMatchDetailTime" />
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="12dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/itemMatchDetailTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:fontFamily="@font/roboto_regular"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@id/versusTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="12” 1T" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/liveImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_live_dot"
+            app:layout_constraintBottom_toBottomOf="@id/itemMatchDetailTime"
+            app:layout_constraintEnd_toStartOf="@id/itemMatchDetailTime"
+            app:layout_constraintTop_toTopOf="@id/itemMatchDetailTime" />
+
+        <TextView
+            android:id="@+id/itemMatchDetailTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12” 1T" />
+
+        <TextView
+            android:id="@+id/itemMatchDetailMatchInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="12' 1T"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/itemMatchDetailMatchHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="19:00"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_regular"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/itemMatchDetailHomeTeamIcon"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:src="@drawable/ic_team_placeholder"
         app:layout_constraintBottom_toBottomOf="@id/homeTeamScore"
         app:layout_constraintEnd_toStartOf="@id/homeTeamScore"
@@ -62,14 +96,13 @@
         android:id="@+id/versusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:fontFamily="@font/roboto_bold"
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_regular"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@id/itemMatchDetailChampionship"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemMatchDetailTime"
+        app:layout_constraintTop_toBottomOf="@id/informationLayout"
         tools:text="X" />
 
     <TextView
@@ -85,8 +118,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/itemMatchDetailAwayTeam"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:src="@drawable/ic_team_placeholder"
         app:layout_constraintBottom_toBottomOf="@id/awayTeamScore"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,9 +140,9 @@
         android:id="@+id/itemMatchDetailChampionship"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:fontFamily="@font/roboto_regular"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/versusTextView"
