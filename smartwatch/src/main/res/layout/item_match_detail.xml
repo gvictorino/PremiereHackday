@@ -67,8 +67,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@id/itemMatchDetailChampionship"
-        app:layout_constraintEnd_toStartOf="@id/awayTeamScore"
-        app:layout_constraintStart_toEndOf="@id/homeTeamScore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/itemMatchDetailTime"
         tools:text="X" />
 
