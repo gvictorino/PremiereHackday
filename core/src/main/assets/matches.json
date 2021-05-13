@@ -14,6 +14,8 @@
 	},
 	"homeScore": 3,
 	"awayScore": 0,
+    "status": "live",
+    "datetime": "2021-04-13T16:45:00",
 	"championship": "Copa do Brasil"
 },
 {
@@ -32,6 +34,8 @@
 	},
 	"homeScore": 3,
 	"awayScore": 2,
+    "status": "ended",
+    "datetime": "2021-04-12T11:00:00",
 	"championship": "Campeonato Paulista"
 },
 {
@@ -50,5 +54,27 @@
 	},
 	"homeScore": 3,
 	"awayScore": 0,
+    "status": "ended",
+    "datetime": "2021-04-12T15:00:00",
 	"championship": "Copa do Brasil"
+},
+{
+    "id": 4,
+    "home": {
+        "id": 6,
+        "name": "Paysandu",
+        "abbreviation": "ABC",
+        "image": "https://s.glbimg.com/es/sde/f/organizacoes/2019/05/29/Untitled-1-65.png"
+    },
+    "away": {
+        "id": 7,
+        "name": "CRB",
+        "abbreviation": "CRB",
+        "image": "https://s.glbimg.com/es/sde/f/organizacoes/2016/05/11/CRB-65_Mh6W7G6.png"
+    },
+    "homeScore": 0,
+    "awayScore": 0,
+    "status": "future",
+    "datetime": "2021-04-16T16:00:00",
+    "championship": "Copa do Brasil"
 }]
