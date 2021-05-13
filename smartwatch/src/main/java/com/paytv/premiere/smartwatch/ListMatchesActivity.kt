@@ -26,7 +26,7 @@ class ListMatchesActivity : Activity() {
         binding.matchesWearableRecycler.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        val headerAdapter = HeaderAdapter()
+        val headerAdapter = HeaderAdapter("Campeonato Brasileiro")
         val matchesAdapter = MatchesAdapter(getMatches()) {
             val intent = Intent(this, PagerMatchesActivity::class.java)
             intent.putExtra("match", it)

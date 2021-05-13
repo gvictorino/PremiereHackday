@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.paytv.premiere.smartwatch.databinding.HeaderMatchListViewholderBinding
 
-class HeaderAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class HeaderAdapter(private val title: String) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return HeaderViewHolder(
             HeaderMatchListViewholderBinding.inflate(
@@ -17,7 +17,7 @@ class HeaderAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as HeaderViewHolder).bind()
+        (holder as HeaderViewHolder).bind(title)
     }
 
     override fun getItemCount() = 1
@@ -26,9 +26,9 @@ class HeaderAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val binding: HeaderMatchListViewholderBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind() {
+        fun bind(title: String) {
             with(binding) {
-                champHeader.text = "Campeonato brasileiro"
+                champHeader.text = title
             }
         }
     }

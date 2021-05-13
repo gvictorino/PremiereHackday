@@ -99,7 +99,6 @@
                 android:fontFamily="@font/roboto_bold"
                 android:layout_marginStart="8dp"
                 tools:text="0"/>
-
         </LinearLayout>
 
         <ImageView

@@ -11,9 +11,16 @@
         android:layout_height="match_parent" />
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/matchesTabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
+        android:background="#121212"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="#121212"/>
+        app:tabBackground="@drawable/dr_page_indicator_selector"
+        app:tabGravity="center"
+        app:tabPaddingStart="6dp"
+        app:tabPaddingEnd="6dp"
+        app:tabIndicatorHeight="0dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

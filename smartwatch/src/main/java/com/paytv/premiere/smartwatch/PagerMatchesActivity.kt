@@ -3,6 +3,7 @@ package com.paytv.premiere.smartwatch
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
+import com.google.android.material.tabs.TabLayoutMediator
 import com.paytv.premiere.core.service.MatchesService
 import com.paytv.premiere.core.service.MatchesServiceImpl
 import com.paytv.premiere.smartwatch.adapter.MatchesPagerAdapter
@@ -23,5 +24,11 @@ class PagerMatchesActivity : Activity() {
         binding.matchesViewPager.adapter = MatchesPagerAdapter(matchesService.getMatches())
 
         binding.matchesViewPager.setCurrentItem(clickedMatch, true)
+
+        TabLayoutMediator(
+            binding.matchesTabLayout,
+            binding.matchesViewPager
+        ) { _, _ ->
+        }.attach()
     }
 }

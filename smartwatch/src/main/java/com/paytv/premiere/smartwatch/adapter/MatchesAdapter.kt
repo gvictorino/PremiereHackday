@@ -45,8 +45,8 @@ class MatchesAdapter(
                 versusTextView.text = "X"
 
                 with(match) {
-                    homeTeamScore.text = homeScore.toString()
-                    awayTeamScore.text = awayScore.toString()
+                    homeTeamScore.text = if (status != "not_started") homeScore.toString() else "-"
+                    awayTeamScore.text = if (status != "not_started") awayScore.toString() else "-"
 
                     homeTeamImageView.load(home?.image)
                     awayTeamImageView.load(away?.image)
@@ -56,7 +56,8 @@ class MatchesAdapter(
                     if (status == "live") {
                         matchHour.visibility = View.GONE
                         liveImageView.visibility = View.VISIBLE
-                        matchInformation.text = "$time\" ${ if (period == "first_half") "1T" else "2T" }"
+                        matchInformation.text =
+                            "$time\" ${if (period == "first_half") "1T" else "2T"}"
 
                         binding.root.setCardBackgroundColor(itemView.context.getColor(R.color.live_match_background))
                     } else {
