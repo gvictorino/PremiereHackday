@@ -19,21 +19,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12' 1T"
+            android:textSize="12sp"
+            android:fontFamily="@font/roboto_regular"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/matchDate"
+            android:id="@+id/matchHour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="19:00"
+            tools:text="19:00"
+            android:textSize="12sp"
+            android:fontFamily="@font/roboto_regular"
             android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/liveImageView"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
             android:src="@drawable/ic_live_dot"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,8 +46,8 @@
 
         <ImageView
             android:id="@+id/homeTeamImageView"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_team_placeholder"
             android:contentDescription="@null"
             android:layout_marginStart="12dp"
@@ -66,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"
                 android:layout_marginEnd="8dp"
                 tools:text="0"/>
 
@@ -74,8 +79,8 @@
                 android:id="@+id/versusTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textStyle="bold"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_bold"
                 tools:text="X"/>
 
             <TextView
@@ -83,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"
                 android:layout_marginStart="8dp"
                 tools:text="0"/>
 
@@ -91,8 +96,8 @@
 
         <ImageView
             android:id="@+id/awayTeamImageView"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_team_placeholder"
             android:contentDescription="@null"
             android:layout_marginEnd="12dp"

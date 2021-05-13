@@ -9,5 +9,6 @@ data class Match(
     val championship: String,
     val status: String,
     val datetime: String,
-    val period: String?
+    val period: String?,
+    val time: Int
 )
