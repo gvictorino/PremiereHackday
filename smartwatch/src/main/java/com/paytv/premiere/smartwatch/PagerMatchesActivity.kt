@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.paytv.premiere.smartwatch.databinding.ActivityPagerMatchesBinding
+import com.paytv.premiere.smartwatch.databinding.ItemMatchDetailBinding
 import com.paytv.premiere.smartwatch.databinding.PageMatchBinding
 
 class PagerMatchesActivity : Activity() {
@@ -25,7 +26,7 @@ class PagerMatchesActivity : Activity() {
     ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             return MatchPageViewHolder(
-                PageMatchBinding.inflate(
+                ItemMatchDetailBinding.inflate(
                     LayoutInflater.from(parent.context),
                     parent,
                     false
@@ -41,12 +42,12 @@ class PagerMatchesActivity : Activity() {
     }
 
     class MatchPageViewHolder(
-        private val binding: PageMatchBinding
+        private val binding: ItemMatchDetailBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {
             with(binding) {
-                text.text = "Page $adapterPosition"
+            
             }
         }
     }
