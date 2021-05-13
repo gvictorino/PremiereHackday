@@ -3,11 +3,16 @@ package com.paytv.premiere.hackday
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.RemoteViews
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.AppWidgetTarget
+import com.bumptech.glide.request.transition.Transition
+import com.paytv.premiere.core.entities.Match
 import com.paytv.premiere.core.service.MatchesService
 import com.paytv.premiere.core.service.MatchesServiceImpl
-import com.squareup.picasso.Picasso
 
 /**
  * Implementation of App Widget functionality.
@@ -22,10 +27,14 @@ class PremiereLargeWidget : AppWidgetProvider() {
         appWidgetIds: IntArray
     ) {
         // There may be multiple widgets active, so update all of them
-        matchesService = MatchesServiceImpl(context)
         for (appWidgetId in appWidgetIds) {
             updateAppLargeWidget(context, appWidgetManager, appWidgetId)
         }
+
+        matchesService = MatchesServiceImpl(context)
+        val matches = matchesService.getMatches()
+
+        loadContent(context, appWidgetIds, matches[0])
     }
 
     override fun onEnabled(context: Context) {
@@ -60,9 +69,22 @@ class PremiereLargeWidget : AppWidgetProvider() {
             context, appWidgetManager, appWidgetId,
             newOptions
         )
-
-        super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
     }
+}
+
+private fun loadContent(context: Context, appWidgetId: IntArray, match: Match) {
+    var options = RequestOptions().override(20, 20)
+    val views = RemoteViews(context.packageName, R.layout.premiere_widget_2x2)
+
+    val awt: AppWidgetTarget = object : AppWidgetTarget(context.applicationContext, R.id.homeTeamLogo, views, *appWidgetId) {
+        override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+            super.onResourceReady(resource, transition)
+        }
+    }
+
+    Glide.with(context).asBitmap().load(match.home!!.image).apply(options).into(awt)
+
+    views.setTextViewText(R.id.championshipText, match.championship)
 }
 
 internal fun updateAppLargeWidget(
@@ -70,13 +92,8 @@ internal fun updateAppLargeWidget(
     appWidgetManager: AppWidgetManager,
     appWidgetId: Int
 ) {
-    val widgetText = context.getString(R.string.appwidget_text)
     // Construct the RemoteViews object
-    val matches = matchesService.getMatches()
     val views = RemoteViews(context.packageName, R.layout.premiere_widget_2x2)
-
-    views.setTextViewText(R.id.championshipText, matches[0].championship)
-    views.setImageViewBitmap(R.id.awayTeamLogo, Picasso.get().load(matches[0].away!!.image).get())
 
     // Instruct the widget manager to update the widget
     appWidgetManager.updateAppWidget(appWidgetId, views)
@@ -87,7 +104,6 @@ private fun getRemoteViews(
     minWidth: Int,
     minHeight: Int
 ): RemoteViews {
-    // First find out rows and columns based on width provided.
     val rows = getCellsForSize(minHeight)
     val columns = getCellsForSize(minWidth)
     if (columns == 2) {
