@@ -14,9 +14,11 @@
 	},
 	"homeScore": 3,
 	"awayScore": 0,
+    "time": 12,
+    "period": "first_half",
     "status": "live",
     "datetime": "2021-04-13T16:45:00",
-	"championship": "Copa do Brasil"
+	"championship": "Campeonato Brasileiro"
 },
 {
 	"id": 2,
@@ -34,9 +36,11 @@
 	},
 	"homeScore": 3,
 	"awayScore": 2,
+    "time": null,
+    "period": null,
     "status": "ended",
     "datetime": "2021-04-12T11:00:00",
-	"championship": "Campeonato Paulista"
+    "championship": "Campeonato Brasileiro"
 },
 {
 	"id": 3,
@@ -54,9 +58,11 @@
 	},
 	"homeScore": 3,
 	"awayScore": 0,
+    "time": null,
+    "period": null,
     "status": "ended",
     "datetime": "2021-04-12T15:00:00",
-	"championship": "Copa do Brasil"
+    "championship": "Campeonato Brasileiro"
 },
 {
     "id": 4,
@@ -74,7 +80,9 @@
     },
     "homeScore": 0,
     "awayScore": 0,
+    "time": null,
+    "period": null,
     "status": "future",
     "datetime": "2021-04-16T16:00:00",
-    "championship": "Copa do Brasil"
+    "championship": "Campeonato Brasileiro"
 }]
