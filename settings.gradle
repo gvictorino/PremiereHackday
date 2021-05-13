@@ -1,2 +1,3 @@
+include ':smartwatch'
 include ':app'
 rootProject.name = "PremiereHackday"
