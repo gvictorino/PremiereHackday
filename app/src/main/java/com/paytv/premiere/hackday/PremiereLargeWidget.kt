@@ -76,15 +76,23 @@ private fun loadContent(context: Context, appWidgetId: IntArray, match: Match) {
     var options = RequestOptions().override(20, 20)
     val views = RemoteViews(context.packageName, R.layout.premiere_widget_2x2)
 
-    val awt: AppWidgetTarget = object : AppWidgetTarget(context.applicationContext, R.id.homeTeamLogo, views, *appWidgetId) {
+    val homeTeamLogo: AppWidgetTarget = object : AppWidgetTarget(context.applicationContext, R.id.homeTeamLogo, views, *appWidgetId) {
         override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
             super.onResourceReady(resource, transition)
         }
     }
 
-    Glide.with(context).asBitmap().load(match.home!!.image).apply(options).into(awt)
+    val awayTeamLogo: AppWidgetTarget = object : AppWidgetTarget(context.applicationContext, R.id.awayTeamLogo, views, *appWidgetId) {
+        override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+            super.onResourceReady(resource, transition)
+        }
+    }
+
+    Glide.with(context).asBitmap().load(match.home!!.image).apply(options).into(homeTeamLogo)
+    Glide.with(context).asBitmap().load(match.away!!.image).apply(options).into(awayTeamLogo)
 
     views.setTextViewText(R.id.championshipText, match.championship)
+    views.setTextViewText(R.id.scoreText, "${match.homeScore} X ${match.awayScore}")
 }
 
 internal fun updateAppLargeWidget(
