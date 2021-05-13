@@ -54,7 +54,7 @@
         style="@style/MatchDetailTeamScore"
         app:layout_constraintBottom_toBottomOf="@id/versusTextView"
         app:layout_constraintEnd_toStartOf="@id/versusTextView"
-        app:layout_constraintStart_toEndOf="@id/itemMatchDetailHomeTeamName"
+        app:layout_constraintStart_toEndOf="@id/itemMatchDetailHomeTeamIcon"
         app:layout_constraintTop_toTopOf="@id/versusTextView"
         tools:text="0" />
 
