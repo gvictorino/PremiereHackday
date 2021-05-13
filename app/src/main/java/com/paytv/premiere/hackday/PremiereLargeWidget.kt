@@ -7,7 +7,6 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.RemoteViews
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.AppWidgetTarget
 import com.bumptech.glide.request.transition.Transition
 import com.paytv.premiere.core.entities.Match
@@ -19,6 +18,7 @@ import com.paytv.premiere.core.service.MatchesServiceImpl
  */
 
 lateinit var matchesService: MatchesService
+lateinit var matches: List<Match>
 
 class PremiereLargeWidget : AppWidgetProvider() {
     override fun onUpdate(
@@ -32,9 +32,14 @@ class PremiereLargeWidget : AppWidgetProvider() {
         }
 
         matchesService = MatchesServiceImpl(context)
-        val matches = matchesService.getMatches()
+        matches = matchesService.getMatches()
 
-        loadContent(context, appWidgetIds, matches[0])
+        loadContent(
+            context,
+            appWidgetIds,
+            matches[0],
+            RemoteViews(context.packageName, R.layout.premiere_widget_2x2)
+        )
     }
 
     override fun onEnabled(context: Context) {
@@ -56,14 +61,13 @@ class PremiereLargeWidget : AppWidgetProvider() {
 
         // Get min width and height.
         val minWidth = options.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
-        val minHeight = options
-            .getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT)
+
+        val remoteViews = getRemoteViews(context!!, minWidth)
+
+        loadContent(context, IntArray(appWidgetId), matches[0], remoteViews)
 
         // Obtain appropriate widget and update it.
-        appWidgetManager.updateAppWidget(
-            appWidgetId,
-            getRemoteViews(context!!, minWidth, minHeight)
-        )
+        appWidgetManager.updateAppWidget(appWidgetId, remoteViews)
 
         super.onAppWidgetOptionsChanged(
             context, appWidgetManager, appWidgetId,
@@ -72,27 +76,33 @@ class PremiereLargeWidget : AppWidgetProvider() {
     }
 }
 
-private fun loadContent(context: Context, appWidgetId: IntArray, match: Match) {
-    var options = RequestOptions().override(20, 20)
-    val views = RemoteViews(context.packageName, R.layout.premiere_widget_2x2)
-
-    val homeTeamLogo: AppWidgetTarget = object : AppWidgetTarget(context.applicationContext, R.id.homeTeamLogo, views, *appWidgetId) {
+private fun loadContent(
+    context: Context,
+    appWidgetId: IntArray,
+    match: Match,
+    remoteViews: RemoteViews
+) {
+    val homeTeamLogo: AppWidgetTarget = object :
+        AppWidgetTarget(context.applicationContext, R.id.homeTeamLogo, remoteViews, *appWidgetId) {
         override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
             super.onResourceReady(resource, transition)
         }
     }
 
-    val awayTeamLogo: AppWidgetTarget = object : AppWidgetTarget(context.applicationContext, R.id.awayTeamLogo, views, *appWidgetId) {
+    val awayTeamLogo: AppWidgetTarget = object :
+        AppWidgetTarget(context.applicationContext, R.id.awayTeamLogo, remoteViews, *appWidgetId) {
         override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
             super.onResourceReady(resource, transition)
         }
     }
 
-    Glide.with(context).asBitmap().load(match.home!!.image).apply(options).into(homeTeamLogo)
-    Glide.with(context).asBitmap().load(match.away!!.image).apply(options).into(awayTeamLogo)
+    Glide.with(context).asBitmap().load(match.home!!.image).into(homeTeamLogo)
+    Glide.with(context).asBitmap().load(match.away!!.image).into(awayTeamLogo)
 
-    views.setTextViewText(R.id.championshipText, match.championship)
-    views.setTextViewText(R.id.scoreText, "${match.homeScore} X ${match.awayScore}")
+    remoteViews.setTextViewText(R.id.championshipText, match.championship)
+    remoteViews.setTextViewText(R.id.scoreText, "${match.homeScore} X ${match.awayScore}")
+    remoteViews.setTextViewText(R.id.awayTeamText, match.away!!.abbreviation)
+    remoteViews.setTextViewText(R.id.homeTeamText, match.home!!.abbreviation)
 }
 
 internal fun updateAppLargeWidget(
@@ -109,10 +119,8 @@ internal fun updateAppLargeWidget(
 
 private fun getRemoteViews(
     context: Context,
-    minWidth: Int,
-    minHeight: Int
+    minWidth: Int
 ): RemoteViews {
-    val rows = getCellsForSize(minHeight)
     val columns = getCellsForSize(minWidth)
     if (columns == 2) {
         return RemoteViews(
