@@ -47,6 +47,7 @@
             android:src="@drawable/ic_team_shield" />
 
         <TextView
+            android:id="@+id/scoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/matchTime"
