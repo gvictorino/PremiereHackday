@@ -3,52 +3,25 @@ package com.paytv.premiere.smartwatch
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import com.paytv.premiere.core.service.MatchesService
+import com.paytv.premiere.core.service.MatchesServiceImpl
+import com.paytv.premiere.smartwatch.adapter.MatchesPagerAdapter
 import com.paytv.premiere.smartwatch.databinding.ActivityPagerMatchesBinding
-import com.paytv.premiere.smartwatch.databinding.ItemMatchDetailBinding
-import com.paytv.premiere.smartwatch.databinding.PageMatchBinding
 
 class PagerMatchesActivity : Activity() {
 
     private lateinit var binding: ActivityPagerMatchesBinding
+
+    private val matchesService: MatchesService = MatchesServiceImpl(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPagerMatchesBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
 
-        binding.matchesViewPager.adapter = MatchesPagerAdapter(listOf(1, 2, 3))
-    }
+        val clickedMatch = intent.extras!!["match"] as Int
+        binding.matchesViewPager.adapter = MatchesPagerAdapter(matchesService.getMatches())
 
-    class MatchesPagerAdapter(
-        private val list: List<Any>
-    ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            return MatchPageViewHolder(
-                ItemMatchDetailBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
-                )
-            )
-        }
-
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            (holder as MatchPageViewHolder).bind()
-        }
-
-        override fun getItemCount() = list.size
-    }
-
-    class MatchPageViewHolder(
-        private val binding: ItemMatchDetailBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind() {
-            with(binding) {
-            
-            }
-        }
+        binding.matchesViewPager.setCurrentItem(clickedMatch, true)
     }
 }

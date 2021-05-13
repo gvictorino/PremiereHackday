@@ -28,7 +28,9 @@ class ListMatchesActivity : Activity() {
 
         val headerAdapter = HeaderAdapter()
         val matchesAdapter = MatchesAdapter(getMatches()) {
-            startActivity(Intent(this, PagerMatchesActivity::class.java))
+            val intent = Intent(this, PagerMatchesActivity::class.java)
+            intent.putExtra("match", it)
+            startActivity(intent)
         }
 
         val concatAdapter = ConcatAdapter().apply {

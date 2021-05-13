@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.paytv.premiere.core.entities.Match
+import com.paytv.premiere.smartwatch.R
 import com.paytv.premiere.smartwatch.databinding.MinimalMatchViewholderBinding
 import com.paytv.premiere.smartwatch.extensions.DB_DATE_FORMAT
 import com.paytv.premiere.smartwatch.extensions.getRelativeDate
@@ -55,8 +56,9 @@ class MatchesAdapter(
                     if (status == "live") {
                         matchHour.visibility = View.GONE
                         liveImageView.visibility = View.VISIBLE
-                        matchInformation.text =
-                            "$time\" ${ if (period == "first_half") "1T" else "2T" }"
+                        matchInformation.text = "$time\" ${ if (period == "first_half") "1T" else "2T" }"
+
+                        binding.root.setCardBackgroundColor(itemView.context.getColor(R.color.live_match_background))
                     } else {
                         val date =
                             SimpleDateFormat(DB_DATE_FORMAT, Locale.getDefault()).parse(datetime)
@@ -66,6 +68,8 @@ class MatchesAdapter(
                         }
                         liveImageView.visibility = View.GONE
                         matchInformation.text = date?.getRelativeDate()
+
+                        binding.root.setCardBackgroundColor(itemView.context.getColor(R.color.match_background))
                     }
                 }
 
