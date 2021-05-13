@@ -5,9 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.paytv.premiere.smartwatch.databinding.ActivityListMatchesBinding
+import com.paytv.premiere.smartwatch.databinding.HeaderMatchListViewholderBinding
 import com.paytv.premiere.smartwatch.databinding.MinimalMatchViewholderBinding
 
 class ListMatchesActivity : Activity() {
@@ -21,15 +23,23 @@ class ListMatchesActivity : Activity() {
 
         binding.matchesWearableRecycler.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.matchesWearableRecycler.adapter =
-            MatchesAdapter(listOf(1, 1, 1)) {
-                startActivity(Intent(this, PagerMatchesActivity::class.java))
-            }
+
+        val headerAdapter = HeaderAdapter()
+        val matchesAdapter = MatchesAdapter(listOf(1, 1, 1)) {
+            startActivity(Intent(this, PagerMatchesActivity::class.java))
+        }
+
+        val concatAdapter = ConcatAdapter().apply {
+            addAdapter(headerAdapter)
+            addAdapter(matchesAdapter)
+        }
+
+        binding.matchesWearableRecycler.adapter = concatAdapter
     }
 
     class MatchesAdapter(
         private val list: List<Any>,
-        private val onMatchClicked : (matchListPosition: Int) -> Unit
+        private val onMatchClicked: (matchListPosition: Int) -> Unit
     ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             return MatchViewHolder(
@@ -51,7 +61,7 @@ class ListMatchesActivity : Activity() {
 
     class MatchViewHolder(
         private val binding: MinimalMatchViewholderBinding,
-        private val onMatchClicked : (matchListPosition: Int) -> Unit
+        private val onMatchClicked: (matchListPosition: Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind() {
@@ -63,6 +73,35 @@ class ListMatchesActivity : Activity() {
                 root.setOnClickListener {
                     onMatchClicked(adapterPosition)
                 }
+            }
+        }
+    }
+
+    class HeaderAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+            return HeaderViewHolder(
+                HeaderMatchListViewholderBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+        }
+
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            (holder as HeaderViewHolder).bind()
+        }
+
+        override fun getItemCount() = 1
+    }
+
+    class HeaderViewHolder(
+        private val binding: HeaderMatchListViewholderBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind() {
+            with(binding) {
+                champHeader.text = "Campeonato brasileiro"
             }
         }
     }
