@@ -2,7 +2,7 @@
 
     <style name="Widget.PremiereHackday.AppWidget.Container" parent="android:Widget">
         <item name="android:id">@android:id/background</item>
-        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:background">@drawable/widget_background</item>
     </style>
 
     <style name="Widget.PremiereHackday.AppWidget.InnerView" parent="android:Widget">

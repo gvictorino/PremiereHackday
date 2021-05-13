@@ -18,6 +18,7 @@ class PremiereWidget : AppWidgetProvider() {
         for (appWidgetId in appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId)
         }
+
     }
 
     override fun onEnabled(context: Context) {
@@ -37,7 +38,8 @@ internal fun updateAppWidget(
     val widgetText = context.getString(R.string.appwidget_text)
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.premiere_widget)
-    views.setTextViewText(R.id.appwidget_text, widgetText)
+
+//    views.setTextViewText(R.id.appwidget_text, widgetText)
 
     // Instruct the widget manager to update the widget
     appWidgetManager.updateAppWidget(appWidgetId, views)
