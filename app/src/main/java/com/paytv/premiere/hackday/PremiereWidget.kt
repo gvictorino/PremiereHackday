@@ -60,7 +60,7 @@ internal fun updateAppWidget(
 ) {
     val widgetText = context.getString(R.string.appwidget_text)
     // Construct the RemoteViews object
-    val views = RemoteViews(context.packageName, R.layout.premiere_widget)
+    val views = RemoteViews(context.packageName, R.layout.premiere_widget_1x2)
 
 //    views.setTextViewText(R.id.appwidget_text, widgetText)
 
@@ -84,39 +84,36 @@ private fun getRemoteViews(
     val rows = getCellsForSize(minHeight)
     val columns = getCellsForSize(minWidth)
     if (rows == 1) {
-        // TODO LAYOUT 1 ROW
-//        return RemoteViews(
-//                context.packageName,
-//                R.layout.premiere_widget 1*2
-//        )
+        return RemoteViews(
+            context.packageName,
+            R.layout.premiere_widget_1x2
+        )
     }
     if (rows == 2) {
         if (columns == 2) {
-            // TODO LAYOUT 2 ROW 2 COLLUMS
+            return RemoteViews(
+                context.packageName,
+                R.layout.premiere_widget_2x2
+            )
         }
         if (columns == 3) {
-            // TODO LAYOUT 2 ROW 3 COLLUMS
+            return RemoteViews(
+                context.packageName,
+                R.layout.premiere_widget_2x3
+            )
         }
         if (columns == 4) {
-            // TODO LAYOUT 2 ROW 3 COLLUMS
+            return RemoteViews(
+                context.packageName,
+                R.layout.premiere_widget_2x3
+            )
         }
     }
-    if(rows == 3){
-
-    }
-    if (columns == 4) {
-        // Get 4 column widget remote view and return
-        return RemoteViews(
-            context.packageName,
-            R.layout.premiere_widget
-        )
-    } else {
-        // Get appropriate remote view.
-        return RemoteViews(
-            context.packageName,
-            R.layout.premiere_widget
-        )
-    }
+    // Get appropriate remote view.
+    return RemoteViews(
+        context.packageName,
+        R.layout.premiere_widget_2x3
+    )
 }
 
 /**
