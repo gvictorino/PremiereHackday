@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.paytv.premiere.smartwatch.databinding.FragmentListMatchesBinding
-import com.paytv.premiere.smartwatch.databinding.ItemTextBinding
+import com.paytv.premiere.smartwatch.databinding.MinimalMatchViewholderBinding
 
 class ListMatchesFragment : Fragment() {
 
@@ -29,8 +29,7 @@ class ListMatchesFragment : Fragment() {
         binding.matchesWearableRecycler.layoutManager =
             LinearLayoutManager(this.requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.matchesWearableRecycler.adapter =
-            MatchesAdapter(listOf(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1))
-
+            MatchesAdapter(listOf(1, 1, 1))
     }
 }
 
@@ -39,7 +38,11 @@ class MatchesAdapter(
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MatchViewHolder(
-            ItemTextBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            MinimalMatchViewholderBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
     }
 
@@ -51,9 +54,14 @@ class MatchesAdapter(
 }
 
 class MatchViewHolder(
-    private val binding: ItemTextBinding
+    private val binding: MinimalMatchViewholderBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind() {
+        with(binding) {
+            homeTeamScore.text = "0"
+            versusTextView.text = "X"
+            awayTeamScore.text = "0"
+        }
     }
 }
