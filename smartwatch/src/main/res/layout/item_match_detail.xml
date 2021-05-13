@@ -18,9 +18,9 @@
         android:id="@+id/itemMatchDetailTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:fontFamily="@font/roboto_regular"
         android:layout_marginBottom="20dp"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/versusTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         tools:text="12” 1T" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/itemMatchDetailHomeTeamIcon"
+        android:id="@+id/homeTeamImageView"
         android:layout_width="44dp"
         android:layout_height="44dp"
         android:src="@drawable/ic_team_placeholder"
@@ -39,22 +39,22 @@
 
     <TextView
         android:id="@+id/itemMatchDetailHomeTeamName"
+        style="@style/MatchDetailTeamName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MatchDetailTeamName"
-        app:layout_constraintEnd_toEndOf="@id/itemMatchDetailHomeTeamIcon"
-        app:layout_constraintStart_toStartOf="@id/itemMatchDetailHomeTeamIcon"
-        app:layout_constraintTop_toBottomOf="@id/itemMatchDetailHomeTeamIcon"
+        app:layout_constraintEnd_toEndOf="@id/homeTeamImageView"
+        app:layout_constraintStart_toStartOf="@id/homeTeamImageView"
+        app:layout_constraintTop_toBottomOf="@id/homeTeamImageView"
         tools:text="ABC" />
 
     <TextView
         android:id="@+id/homeTeamScore"
+        style="@style/MatchDetailTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MatchDetailTeamScore"
         app:layout_constraintBottom_toBottomOf="@id/versusTextView"
         app:layout_constraintEnd_toStartOf="@id/versusTextView"
-        app:layout_constraintStart_toEndOf="@id/itemMatchDetailHomeTeamIcon"
+        app:layout_constraintStart_toEndOf="@id/homeTeamImageView"
         app:layout_constraintTop_toTopOf="@id/versusTextView"
         tools:text="0" />
 
@@ -62,29 +62,29 @@
         android:id="@+id/versusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:fontFamily="@font/roboto_bold"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="40dp"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@id/itemMatchDetailChampionship"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/itemMatchDetailTime"
         tools:text="X" />
 
     <TextView
         android:id="@+id/awayTeamScore"
+        style="@style/MatchDetailTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MatchDetailTeamScore"
         app:layout_constraintBottom_toBottomOf="@id/versusTextView"
-        app:layout_constraintEnd_toStartOf="@id/itemMatchDetailAwayTeam"
+        app:layout_constraintEnd_toStartOf="@id/awayTeamImageView"
         app:layout_constraintStart_toEndOf="@id/versusTextView"
         app:layout_constraintTop_toTopOf="@id/versusTextView"
         tools:text="0" />
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/itemMatchDetailAwayTeam"
+        android:id="@+id/awayTeamImageView"
         android:layout_width="44dp"
         android:layout_height="44dp"
         android:src="@drawable/ic_team_placeholder"
@@ -95,20 +95,20 @@
 
     <TextView
         android:id="@+id/itemMatchDetailAwayTeamName"
+        style="@style/MatchDetailTeamName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MatchDetailTeamName"
-        app:layout_constraintEnd_toEndOf="@id/itemMatchDetailAwayTeam"
-        app:layout_constraintStart_toStartOf="@id/itemMatchDetailAwayTeam"
-        app:layout_constraintTop_toBottomOf="@id/itemMatchDetailAwayTeam"
+        app:layout_constraintEnd_toEndOf="@id/awayTeamImageView"
+        app:layout_constraintStart_toStartOf="@id/awayTeamImageView"
+        app:layout_constraintTop_toBottomOf="@id/awayTeamImageView"
         tools:text="XYZ" />
 
     <TextView
         android:id="@+id/itemMatchDetailChampionship"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
         android:fontFamily="@font/roboto_regular"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
