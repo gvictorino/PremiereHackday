@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/notificationBallIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_football" />
+
+    <ImageView
+        android:id="@+id/notificationTemIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/notificationTimeMatch"
+        android:layout_toStartOf="@+id/notificationTimeMatch"
+        android:src="@drawable/ic_team_placeholder" />
+
+    <TextView
+        android:id="@+id/notificationGolText"
+        android:layout_width="wrap_content"
+        android:layout_toEndOf="@id/notificationBallIcon"
+        android:layout_height="wrap_content"
+        android:text="GOOOOL!" />
+
+    <TextView
+        android:id="@+id/notificationTimeMatch"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/notificationGolText"
+        android:layout_alignStart="@id/notificationGolText"
+        android:layout_height="wrap_content"
+        android:text="12” 1T" />
+
+</RelativeLayout>

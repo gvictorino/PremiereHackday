@@ -45,6 +45,7 @@
             android:textColor="@color/white"
             android:fontFamily="@font/roboto_regular"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
@@ -57,6 +58,7 @@
             android:fontFamily="@font/roboto_regular"
             android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -73,9 +75,9 @@
 
     <TextView
         android:id="@+id/itemMatchDetailHomeTeamName"
+        style="@style/MatchDetailTeamName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MatchDetailTeamName"
         app:layout_constraintEnd_toEndOf="@id/itemMatchDetailHomeTeamIcon"
         app:layout_constraintStart_toStartOf="@id/itemMatchDetailHomeTeamIcon"
         app:layout_constraintTop_toBottomOf="@id/itemMatchDetailHomeTeamIcon"
@@ -83,9 +85,9 @@
 
     <TextView
         android:id="@+id/homeTeamScore"
+        style="@style/MatchDetailTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MatchDetailTeamScore"
         app:layout_constraintBottom_toBottomOf="@id/versusTextView"
         app:layout_constraintEnd_toStartOf="@id/versusTextView"
         app:layout_constraintStart_toEndOf="@id/itemMatchDetailHomeTeamIcon"
@@ -100,16 +102,16 @@
         android:fontFamily="@font/roboto_regular"
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@id/itemMatchDetailChampionship"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/informationLayout"
         tools:text="X" />
 
     <TextView
         android:id="@+id/awayTeamScore"
+        style="@style/MatchDetailTeamScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MatchDetailTeamScore"
         app:layout_constraintBottom_toBottomOf="@id/versusTextView"
         app:layout_constraintEnd_toStartOf="@id/itemMatchDetailAwayTeam"
         app:layout_constraintStart_toEndOf="@id/versusTextView"
@@ -128,9 +130,9 @@
 
     <TextView
         android:id="@+id/itemMatchDetailAwayTeamName"
+        style="@style/MatchDetailTeamName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/MatchDetailTeamName"
         app:layout_constraintEnd_toEndOf="@id/itemMatchDetailAwayTeam"
         app:layout_constraintStart_toStartOf="@id/itemMatchDetailAwayTeam"
         app:layout_constraintTop_toBottomOf="@id/itemMatchDetailAwayTeam"
