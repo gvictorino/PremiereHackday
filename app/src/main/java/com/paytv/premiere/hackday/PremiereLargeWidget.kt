@@ -11,7 +11,6 @@ import com.bumptech.glide.request.target.AppWidgetTarget
 import com.bumptech.glide.request.transition.Transition
 import com.paytv.premiere.core.entities.Match
 import com.paytv.premiere.core.service.MatchesService
-import com.paytv.premiere.core.service.MatchesServiceImpl
 import com.paytv.premiere.core.service.MyTeamServiceImpl
 
 /**
@@ -101,7 +100,7 @@ private fun loadContent(
     Glide.with(context).asBitmap().load(match.away!!.image).into(awayTeamLogo)
 
     remoteViews.setTextViewText(R.id.championshipText, match.championship)
-    remoteViews.setTextViewText(R.id.scoreText, "${match.homeScore} X ${match.awayScore}")
+    remoteViews.setTextViewText(R.id.scoreText, "${match.homeScore} x ${match.awayScore}")
     remoteViews.setTextViewText(R.id.awayTeamText, match.away!!.abbreviation)
     remoteViews.setTextViewText(R.id.homeTeamText, match.home!!.abbreviation)
 }
