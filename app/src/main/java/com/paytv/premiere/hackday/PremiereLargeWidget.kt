@@ -128,6 +128,12 @@ private fun getRemoteViews(
             R.layout.premiere_widget_2x2
         )
     }
+    if (columns == 5) {
+        return RemoteViews(
+            context.packageName,
+            R.layout.premiere_widget_2x5
+        )
+    }
     // Get appropriate remote view.
     return RemoteViews(
         context.packageName,
