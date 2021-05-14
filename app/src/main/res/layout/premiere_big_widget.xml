@@ -1,0 +1,392 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:theme="@style/Theme.PremiereHackday.AppWidgetContainer">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/widget_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/widget_light_background"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:id="@+id/timeContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/snapshot"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/liveIcon"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="16dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_live" />
+
+                <TextView
+                    android:id="@+id/matchTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="12' 1T"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/snapshot"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/snapshot" />
+
+            <ImageView
+                android:id="@+id/homeTeamLogo"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_below="@id/timeContainer"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_team_shield" />
+
+            <TextView
+                android:id="@+id/homeTeamText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/homeTeamLogo"
+                android:layout_alignStart="@id/homeTeamLogo"
+                android:layout_alignEnd="@+id/homeTeamLogo"
+                android:gravity="center"
+                android:text="ABC"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/timeContainer"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_toStartOf="@id/awayTeamLogo"
+                android:layout_toEndOf="@id/homeTeamLogo"
+                android:gravity="center"
+                android:text="0 x 0"
+                android:textSize="34sp" />
+
+            <ImageView
+                android:id="@+id/awayTeamLogo"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_below="@id/timeContainer"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_toStartOf="@id/snapshot"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_team_shield" />
+
+            <TextView
+                android:id="@+id/awayTeamText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/awayTeamLogo"
+                android:layout_alignStart="@+id/awayTeamLogo"
+                android:layout_alignEnd="@id/awayTeamLogo"
+                android:gravity="center"
+                android:text="ABC"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/championshipText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/scoreText"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_toStartOf="@id/snapshot"
+                android:gravity="center"
+                android:text="Campeonato Gaúcho"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginVertical="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="185dp"
+                android:layout_height="130dp"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/widget_light_background"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/game1Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_toStartOf="@id/game1Time"
+                    android:text="Ontem"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/game1Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:text="19:00"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/game1HomeTeamLogo"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@id/game1Date"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_team_shield" />
+
+                <TextView
+                    android:id="@+id/game1HomeTeamText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/game1HomeTeamLogo"
+                    android:layout_alignStart="@id/game1HomeTeamLogo"
+                    android:layout_alignEnd="@+id/game1HomeTeamLogo"
+                    android:gravity="center"
+                    android:text="ABC"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/game1ScoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/game1Date"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_toStartOf="@id/game1AwayTeamText"
+                    android:layout_toEndOf="@id/game1HomeTeamText"
+                    android:gravity="center"
+                    android:text="0 x 0"
+                    android:textSize="34sp" />
+
+                <ImageView
+                    android:id="@+id/game1AwayTeamLogo"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@id/game1Date"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_team_shield" />
+
+                <TextView
+                    android:id="@+id/game1AwayTeamText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/game1AwayTeamLogo"
+                    android:layout_alignStart="@+id/game1AwayTeamLogo"
+                    android:layout_alignEnd="@id/game1AwayTeamLogo"
+                    android:gravity="center"
+                    android:text="ABC"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/game1ChampionshipText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/game1ScoreText"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="Campeonato Gaúcho"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="185dp"
+                android:layout_height="130dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/widget_light_background"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/game2Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_toStartOf="@id/game2Time"
+                    android:text="Ontem"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/game2Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:text="19:00"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/game2HomeTeamLogo"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@id/game2Date"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_team_shield" />
+
+                <TextView
+                    android:id="@+id/game2HomeTeamText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/game2HomeTeamLogo"
+                    android:layout_alignStart="@id/game2HomeTeamLogo"
+                    android:layout_alignEnd="@+id/game2HomeTeamLogo"
+                    android:gravity="center"
+                    android:text="ABC"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/game2ScoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/game2Date"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_toStartOf="@id/game2AwayTeamText"
+                    android:layout_toEndOf="@id/game2HomeTeamText"
+                    android:gravity="center"
+                    android:text="0 x 0"
+                    android:textSize="34sp" />
+
+                <ImageView
+                    android:id="@+id/game2AwayTeamLogo"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@id/game2Date"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_team_shield" />
+
+                <TextView
+                    android:id="@+id/game2AwayTeamText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/game2AwayTeamLogo"
+                    android:layout_alignStart="@+id/game2AwayTeamLogo"
+                    android:layout_alignEnd="@id/game2AwayTeamLogo"
+                    android:gravity="center"
+                    android:text="ABC"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/game2ChampionshipText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/game2ScoreText"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="Campeonato Gaúcho"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/game3Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Próximo jogo"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/game3HomeTeamLogo"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="16dp"
+                android:layout_toEndOf="@id/game3Text"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_team_shield" />
+
+            <TextView
+                android:id="@+id/game3ShieldsSplit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/game3HomeTeamLogo"
+                android:text="X"
+                android:textSize="24sp" />
+
+            <ImageView
+                android:id="@+id/game3AwayTeamLogo"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="16dp"
+                android:layout_toEndOf="@id/game3ShieldsSplit"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_team_shield" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/game3AwayTeamLogo"
+                android:gravity="center"
+                android:text="HOJE | 19:00"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>
