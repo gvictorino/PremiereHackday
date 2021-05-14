@@ -12,6 +12,7 @@ import com.bumptech.glide.request.transition.Transition
 import com.paytv.premiere.core.entities.Match
 import com.paytv.premiere.core.service.MatchesService
 import com.paytv.premiere.core.service.MatchesServiceImpl
+import com.paytv.premiere.core.service.MyTeamServiceImpl
 
 /**
  * Implementation of App Widget functionality.
@@ -31,7 +32,7 @@ class PremiereLargeWidget : AppWidgetProvider() {
             updateAppLargeWidget(context, appWidgetManager, appWidgetId)
         }
 
-        matchesService = MatchesServiceImpl(context)
+        matchesService = MyTeamServiceImpl(context)
         matches = matchesService.getMatches()
 
         loadContent(

@@ -11,6 +11,7 @@ import com.bumptech.glide.request.target.AppWidgetTarget
 import com.bumptech.glide.request.transition.Transition
 import com.paytv.premiere.core.entities.Match
 import com.paytv.premiere.core.service.MatchesServiceImpl
+import com.paytv.premiere.core.service.MyTeamServiceImpl
 
 class PremiereSmallWidget : AppWidgetProvider() {
     override fun onUpdate(
@@ -18,7 +19,7 @@ class PremiereSmallWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        matchesService = MatchesServiceImpl(context)
+        matchesService = MyTeamServiceImpl(context)
         matches = matchesService.getMatches()
 
         loadContent(
