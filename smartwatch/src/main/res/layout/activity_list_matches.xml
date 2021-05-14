@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.wear.widget.WearableRecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/matchesWearableRecycler"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingHorizontal="8dp"
+    android:paddingBottom="12dp"
+    android:background="#121212"/>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <androidx.wear.widget.WearableRecyclerView
-        android:id="@+id/matchesWearableRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#121212"
-        android:paddingHorizontal="8dp"
-        android:paddingBottom="12dp" />
-
-</LinearLayout>

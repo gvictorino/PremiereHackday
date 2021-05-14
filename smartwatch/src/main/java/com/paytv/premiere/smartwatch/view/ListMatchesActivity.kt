@@ -32,13 +32,11 @@ class ListMatchesActivity : Activity() {
 
         createNotificationChannel()
 
-        binding.button.setOnClickListener {
-            notifyNotification(
-                this,
-                INTERACTIVE_NOTIFICATION_ID,
-                createInteractiveNotification(this)
-            )
-        }
+        notifyNotification(
+            this,
+            INTERACTIVE_NOTIFICATION_ID,
+            createInteractiveNotification(this, "AVC", "FML")
+        )
 
         val headerAdapter = HeaderAdapter("Campeonato Brasileiro")
         val matchesAdapter = MatchesAdapter(getMatches()) {

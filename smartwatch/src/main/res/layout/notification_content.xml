@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <TextView
@@ -12,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GOOOOL!" />
-
 
     <TextView
         android:id="@+id/notificationTimeMatch"
@@ -26,6 +24,7 @@
         android:id="@+id/scoreLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/notificationTimeMatch"
         android:gravity="center">
 
         <TextView
@@ -33,27 +32,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
+            android:text="0"
             android:textColor="@color/white"
-            android:textSize="30sp"
-            android:text="0" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/versusTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
+            android:text="X"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:text="X" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/awayTeamScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
+            android:text="0"
             android:textColor="@color/white"
-            android:textSize="30sp"
-            android:text="0" />
+            android:textSize="30sp" />
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
