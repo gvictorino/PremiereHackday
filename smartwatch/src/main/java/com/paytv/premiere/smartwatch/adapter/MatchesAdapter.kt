@@ -11,6 +11,7 @@ import com.paytv.premiere.smartwatch.databinding.MinimalMatchViewholderBinding
 import com.paytv.premiere.smartwatch.extensions.DB_DATE_FORMAT
 import com.paytv.premiere.smartwatch.extensions.getRelativeDate
 import com.paytv.premiere.smartwatch.extensions.mapTime
+import com.paytv.premiere.smartwatch.extensions.pulse
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -56,9 +57,11 @@ class MatchesAdapter(
                     if (status == "live") {
                         matchHour.visibility = View.GONE
                         liveImageView.visibility = View.VISIBLE
+                        pulseImageView.visibility = View.VISIBLE
                         matchInformation.text =
                             "$time\" ${if (period == "first_half") "1T" else "2T"}"
 
+                        pulseImageView.pulse(itemView.context)
                         binding.root.setCardBackgroundColor(itemView.context.getColor(R.color.live_match_background))
                     } else {
                         val date =
@@ -68,6 +71,7 @@ class MatchesAdapter(
                             text = date?.mapTime()
                         }
                         liveImageView.visibility = View.GONE
+                        pulseImageView.visibility = View.GONE
                         matchInformation.text = date?.getRelativeDate()
 
                         binding.root.setCardBackgroundColor(itemView.context.getColor(R.color.match_background))

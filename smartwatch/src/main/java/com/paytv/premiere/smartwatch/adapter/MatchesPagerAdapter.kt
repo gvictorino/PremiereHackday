@@ -10,6 +10,7 @@ import com.paytv.premiere.smartwatch.databinding.ItemMatchDetailBinding
 import com.paytv.premiere.smartwatch.extensions.DB_DATE_FORMAT
 import com.paytv.premiere.smartwatch.extensions.getRelativeDate
 import com.paytv.premiere.smartwatch.extensions.mapTime
+import com.paytv.premiere.smartwatch.extensions.pulse
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -47,6 +48,8 @@ class MatchesPagerAdapter(
 
                     itemMatchDetailTime.text =
                         "${match.time}\" ${if (match.period == "first_half") "1T" else "2T"}"
+
+                    pulseImageView.pulse(itemView.context)
                 } else {
                     val date =
                         SimpleDateFormat(DB_DATE_FORMAT, Locale.getDefault()).parse(match.datetime)

@@ -13,28 +13,51 @@
         android:layout_marginHorizontal="12dp"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/liveImageView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_live_dot"
-            app:layout_constraintBottom_toBottomOf="@id/itemMatchDetailTime"
-            app:layout_constraintEnd_toStartOf="@id/itemMatchDetailTime"
-            app:layout_constraintTop_toTopOf="@id/itemMatchDetailTime" />
-
-        <TextView
-            android:id="@+id/itemMatchDetailTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:fontFamily="@font/roboto_regular"
-            android:layout_marginBottom="20dp"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="12” 1T" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/liveImageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/red_circle"
+                android:padding="1.5dp"
+                app:layout_constraintTop_toTopOf="@id/pulseImageView"
+                app:layout_constraintBottom_toBottomOf="@id/pulseImageView"
+                app:layout_constraintEnd_toEndOf="@id/pulseImageView"
+                app:layout_constraintStart_toStartOf="@id/pulseImageView"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pulseImageView"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/red_circle"
+                android:alpha="0.3"
+                android:layout_marginEnd="2dp"
+                app:layout_constraintTop_toTopOf="@id/itemMatchDetailTime"
+                app:layout_constraintBottom_toBottomOf="@id/itemMatchDetailTime"
+                app:layout_constraintEnd_toStartOf="@id/itemMatchDetailTime"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/itemMatchDetailTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/pulseImageView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="12” 1T" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/itemMatchDetailMatchInformation"

@@ -41,12 +41,23 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/liveImageView"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:src="@drawable/ic_live_dot"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/red_circle"
+            android:padding="1.5dp"
+            app:layout_constraintTop_toTopOf="@id/pulseImageView"
+            app:layout_constraintBottom_toBottomOf="@id/pulseImageView"
+            app:layout_constraintEnd_toEndOf="@id/pulseImageView"
+            app:layout_constraintStart_toStartOf="@id/pulseImageView"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pulseImageView"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/red_circle"
+            android:alpha="0.3"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/matchInformation"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <ImageView
             android:id="@+id/homeTeamImageView"
