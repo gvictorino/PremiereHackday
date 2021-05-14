@@ -42,6 +42,7 @@ class MatchesPagerAdapter(
 
                 if (match.status == "live") {
                     liveImageView.visibility = View.VISIBLE
+                    pulseImageView.visibility = View.VISIBLE
                     itemMatchDetailTime.visibility = View.VISIBLE
                     itemMatchDetailMatchHour.visibility = View.GONE
                     itemMatchDetailMatchInformation.visibility = View.GONE
@@ -54,6 +55,7 @@ class MatchesPagerAdapter(
                     val date =
                         SimpleDateFormat(DB_DATE_FORMAT, Locale.getDefault()).parse(match.datetime)
                     liveImageView.visibility = View.GONE
+                    pulseImageView.visibility = View.GONE
                     itemMatchDetailTime.visibility = View.GONE
                     itemMatchDetailMatchHour.visibility = View.VISIBLE
                     itemMatchDetailMatchInformation.visibility = View.VISIBLE
