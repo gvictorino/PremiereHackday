@@ -3,8 +3,6 @@ package com.paytv.premiere.smartwatch.view
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.widget.Toast
 import com.google.android.material.tabs.TabLayoutMediator
 import com.paytv.premiere.core.service.MatchesService
 import com.paytv.premiere.core.service.MatchesServiceImpl
@@ -32,26 +30,9 @@ class PagerMatchesActivity : Activity() {
             binding.matchesViewPager
         ) { _, _ ->
         }.attach()
-    }
 
-    private var initialY = 0f
-
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-
-        return when (event?.actionMasked) {
-            MotionEvent.ACTION_DOWN -> {
-                initialY = event.rawY
-                true
-            }
-            MotionEvent.ACTION_UP -> {
-                if (event.rawY - initialY > 30) {
-                    finish()
-                }
-                true
-            }
-
-            else ->
-                super.onTouchEvent(event)
+        binding.backButton.setOnClickListener {
+            finish()
         }
     }
 }
