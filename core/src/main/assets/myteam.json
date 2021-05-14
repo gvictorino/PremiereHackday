@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "home": {
+            "id": 1,
+            "name": "Flamengo",
+            "abbreviation": "FLA",
+            "image": "https://s.glbimg.com/es/sde/f/organizacoes/2018/04/09/Flamengo-65.png"
+        },
+        "away": {
+            "id": 2,
+            "name": "Fluminense",
+            "abbreviation": "FLU",
+            "image": "https://s.glbimg.com/es/sde/f/organizacoes/2014/04/14/fluminense_60x60.png"
+        },
+        "homeScore": 2,
+        "awayScore": 2,
+        "time": 34,
+        "period": "first_half",
+        "status": "live",
+        "datetime": "2021-05-13T16:45:00",
+        "championship": "Campeonato Brasileiro"
+    },
+    {
+        "id": 2,
+        "home": {
+            "id": 3,
+            "name": "Corinthians",
+            "abbreviation": "COR",
+            "image": "https://s.glbimg.com/es/sde/f/organizacoes/2019/09/30/Corinthians_65.png"
+        },
+        "away": {
+            "id": 4,
+            "name": "Flamengo",
+            "abbreviation": "FLA",
+            "image": "https://s.glbimg.com/es/sde/f/organizacoes/2018/04/09/Flamengo-65.png"
+        },
+        "homeScore": 3,
+        "awayScore": 2,
+        "time": 0,
+        "period": "",
+        "status": "ended",
+        "datetime": "2021-05-09T11:00:00",
+        "championship": "Campeonato Brasileiro"
+    },
+    {
+        "id": 3,
+        "home": {
+            "id": 5,
+            "name": "Flamengo",
+            "abbreviation": "FLA",
+            "image": "https://s.glbimg.com/es/sde/f/organizacoes/2018/04/09/Flamengo-65.png"
+        },
+        "away": {
+            "id": 6,
+            "name": "Botafogo",
+            "abbreviation": "BOT",
+            "image": "https://s.glbimg.com/es/sde/f/organizacoes/2019/02/04/botafogo-65.png"
+        },
+        "homeScore": 3,
+        "awayScore": 0,
+        "time": 0,
+        "period": "",
+        "status": "ended",
+        "datetime": "2021-05-12T15:00:00",
+        "championship": "Campeonato Brasileiro"
+    },
+    {
+        "id": 4,
+        "home": {
+            "id": 6,
+            "name": "Palmeiras",
+            "abbreviation": "PAL",
+            "image": "https://s.glbimg.com/es/sde/f/organizacoes/2014/04/14/palmeiras_60x60.png"
+        },
+        "away": {
+            "id": 7,
+            "name": "Flamengo",
+            "abbreviation": "FLA",
+            "image": "https://s.glbimg.com/es/sde/f/organizacoes/2018/04/09/Flamengo-65.png"
+        },
+        "homeScore": 0,
+        "awayScore": 0,
+        "time": 0,
+        "period": "",
+        "status": "future",
+        "datetime": "2021-05-16T16:00:00",
+        "championship": "Campeonato Brasileiro"
+    }
+]
