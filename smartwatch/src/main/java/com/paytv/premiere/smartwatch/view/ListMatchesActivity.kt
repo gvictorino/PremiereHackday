@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.paytv.premiere.core.service.MatchesService
 import com.paytv.premiere.core.service.MatchesServiceImpl
-import com.paytv.premiere.smartwatch.CHANNEL_DESCRIPTION
-import com.paytv.premiere.smartwatch.CHANNEL_ID
-import com.paytv.premiere.smartwatch.CHANNEL_NAME
+import com.paytv.premiere.smartwatch.*
 import com.paytv.premiere.smartwatch.adapter.HeaderAdapter
 import com.paytv.premiere.smartwatch.adapter.MatchesAdapter
 import com.paytv.premiere.smartwatch.databinding.ActivityListMatchesBinding
@@ -33,6 +31,14 @@ class ListMatchesActivity : Activity() {
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         createNotificationChannel()
+
+        binding.button.setOnClickListener {
+            notifyNotification(
+                this,
+                INTERACTIVE_NOTIFICATION_ID,
+                createInteractiveNotification(this)
+            )
+        }
 
         val headerAdapter = HeaderAdapter("Campeonato Brasileiro")
         val matchesAdapter = MatchesAdapter(getMatches()) {

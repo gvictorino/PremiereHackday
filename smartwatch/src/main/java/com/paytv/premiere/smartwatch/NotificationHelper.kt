@@ -29,16 +29,9 @@ fun createInteractiveNotification(context: Context): Notification {
             )
         )
         .setColorized(true)
-        .setContentTitle("Interactive Notification Title")
-        .setContentText("Interactive Notification Text Count:")
         .setContentIntent(InteractiveNotificationBroadcastReceiver.newPendingIntent(context))
         .setStyle(NotificationCompat.DecoratedCustomViewStyle())
         .setCustomContentView(remoteViews)
-        .addAction(
-            R.drawable.ic_team_placeholder,
-            "Increment",
-            InteractiveNotificationBroadcastReceiver.newPendingIntent(context)
-        )
         .build()
 }
 

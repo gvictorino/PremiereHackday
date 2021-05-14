@@ -1,35 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/notificationBallIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_football" />
-
-    <ImageView
-        android:id="@+id/notificationTemIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/notificationTimeMatch"
-        android:layout_toStartOf="@+id/notificationTimeMatch"
-        android:src="@drawable/ic_team_placeholder" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/notificationGolText"
         android:layout_width="wrap_content"
-        android:layout_toEndOf="@id/notificationBallIcon"
         android:layout_height="wrap_content"
         android:text="GOOOOL!" />
+
 
     <TextView
         android:id="@+id/notificationTimeMatch"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/notificationGolText"
         android:layout_alignStart="@id/notificationGolText"
-        android:layout_height="wrap_content"
         android:text="12” 1T" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/scoreLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/homeTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/versusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="X" />
+
+        <TextView
+            android:id="@+id/awayTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:text="0" />
+    </LinearLayout>
+
+</LinearLayout>
